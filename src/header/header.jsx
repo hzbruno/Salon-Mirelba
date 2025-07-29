@@ -14,7 +14,7 @@ function Header() {
       <header className="header">
         <div className="left-section">
           <Link to="/" onClick={handleLinkClick}>
-            <img id="logo" src="/img/salon-mirelba-logo.png" alt="Logo" />
+            <img id="logo" src={process.env.PUBLIC_URL + "/img/salon-mirelba-logo.png"} alt="Logo" />
           </Link>
           <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
             ☰ MENÚ
@@ -44,7 +44,7 @@ function Header() {
               <a href="#ofertas" className="oferta" onClick={handleLinkClick}>Ofertas</a>
             </div>
             <div className="menu-promo">
-              <img src="/img/promo.png" alt="Promo" />
+              <img src={process.env.PUBLIC_URL + "/img/promo.png"} alt="Promo" />
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ const productos = [
     id: 1,
     nombre: "Agua Mineral",
     precio: 75.00,
-    imagen: "/img/promo.png",
+    imagen: '/img/promo.png',
     categoria: ["bebidas", "ofertas"],
     descripcion: ["descripcion"]
   },

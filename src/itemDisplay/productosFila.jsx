@@ -35,7 +35,7 @@ export default function ProductosFila({ categoriasDeseadas, titulo }) {
             <ItemProducto
               key={p.id}
               id={p.id}
-              imagen={p.imagen}
+              imagen={process.env.PUBLIC_URL + p.imagen}
               nombre={p.nombre}
               precio={p.precio}
             />

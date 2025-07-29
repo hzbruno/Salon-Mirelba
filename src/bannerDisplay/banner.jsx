@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './banner.css';
 
 const imagenes = [
-  '/carrusel/banner1.png',
-  '/carrusel/banner2.png',
-  '/carrusel/banner3.png',
+  `${process.env.PUBLIC_URL}/carrusel/banner1.png`,
+  `${process.env.PUBLIC_URL}/carrusel/banner2.png`,
+  `${process.env.PUBLIC_URL}/carrusel/banner3.png`,
 ];
-
 export default function BannerCarrusel() {
   const [indice, setIndice] = useState(0);
   const total = imagenes.length;

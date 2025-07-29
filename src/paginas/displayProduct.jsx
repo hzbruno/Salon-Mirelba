@@ -13,7 +13,7 @@ export default function DisplayProduct() {
   return (
     <>
     <div className="display-product-container">
-      <img src={producto.imagen} alt={producto.nombre} className="product-image" />
+      <img src={process.env.PUBLIC_URL + producto.imagen} alt={producto.nombre} className="product-image" />
       <div className="product-details">
         <h1 className="product-title">{producto.nombre}</h1>
         <p className="product-price">${producto.precio.toFixed(2)}</p>
