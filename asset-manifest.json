@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mirelba/static/css/main.8a8078e7.css",
-    "main.js": "/mirelba/static/js/main.f85bf3dc.js",
+    "main.js": "/mirelba/static/js/main.ae2b88d1.js",
     "static/js/453.60577089.chunk.js": "/mirelba/static/js/453.60577089.chunk.js",
     "index.html": "/mirelba/index.html",
     "main.8a8078e7.css.map": "/mirelba/static/css/main.8a8078e7.css.map",
-    "main.f85bf3dc.js.map": "/mirelba/static/js/main.f85bf3dc.js.map",
+    "main.ae2b88d1.js.map": "/mirelba/static/js/main.ae2b88d1.js.map",
     "453.60577089.chunk.js.map": "/mirelba/static/js/453.60577089.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8a8078e7.css",
-    "static/js/main.f85bf3dc.js"
+    "static/js/main.ae2b88d1.js"
   ]
 }
