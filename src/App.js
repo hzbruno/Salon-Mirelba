@@ -7,7 +7,7 @@ import Footer from './footer/footer';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Salon-Mirelba">
       <Header />
       <main>
         <Routes>
