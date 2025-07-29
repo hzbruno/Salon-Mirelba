@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import categorias from '../datos/categorias';
 import './header.css';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [subMenuOpen, setSubMenuOpen] = useState(null);
 
   const handleLinkClick = () => {
     setMenuOpen(false);
+    setSubMenuOpen(null);
+  };
+
+  const toggleSubMenu = (categoria) => {
+    setSubMenuOpen(subMenuOpen === categoria ? null : categoria);
   };
 
   return (
@@ -28,27 +35,59 @@ function Header() {
       {menuOpen && (
         <div className="mega-menu">
           <div className="menu-inside">
+
             <div className="menu-categories">
-              <Link to="/categoria/almacen" onClick={handleLinkClick}>Almacén</Link>
-              <Link to="/categoria/frescos" onClick={handleLinkClick}>Frescos</Link>
-              <Link to="/categoria/bebidas" onClick={handleLinkClick}>Bebidas</Link>
-              <Link to="/categoria/congelados" onClick={handleLinkClick}>Congelados</Link>
-              <Link to="/categoria/limpieza" onClick={handleLinkClick}>Limpieza</Link>
-              <Link to="/categoria/perfumeria" onClick={handleLinkClick}>Perfumería</Link>
-              <Link to="/categoria/tecnologia" onClick={handleLinkClick}>Electro y Tecnología</Link>
-              <Link to="/categoria/jugueteria" onClick={handleLinkClick}>Juguetería</Link>
-              <Link to="/categoria/deportes" onClick={handleLinkClick}>Deportes y Fitness</Link>
-              <Link to="/categoria/hogar" onClick={handleLinkClick}>Hogar y Tiempo Libre</Link>
-              <Link to="/categoria/ferreteria" onClick={handleLinkClick}>Ferretería</Link>
-              <Link to="/categoria/bebes" onClick={handleLinkClick}>Bebés</Link>
-              <Link to="/categoria/ofertas" className="oferta" onClick={handleLinkClick}>Ofertas</Link>
+              {categorias.map((cat, index) => (
+                cat.subcategorias ? (
+                  <div
+                    key={index}
+                    className={`menu-subgroup hoverable ${subMenuOpen === cat.nombre ? 'active' : ''}`}
+                    onMouseEnter={() => toggleSubMenu(cat.nombre)}
+                    onMouseLeave={() => toggleSubMenu(null)}
+                  >
+                    <Link
+                      to={`/categoria/${cat.ruta}`}
+                      onClick={handleLinkClick}
+                      className="categoria-link"
+                    >
+                      {cat.nombre} <span className="arrow-menu">›</span>
+                    </Link>
+
+                    {subMenuOpen === cat.nombre && (
+                      <div className="submenu">
+                        {cat.subcategorias.map((sub, i) => (
+                          <Link
+                            key={i}
+                            to={`/categoria/${sub.ruta}`}
+                            onClick={handleLinkClick}
+                            className="submenu-link"
+                          >
+                            {sub.nombre}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={index}
+                    to={`/categoria/${cat.ruta}`}
+                    onClick={handleLinkClick}
+                    className={cat.especial ? 'oferta' : ''}
+                  >
+                    {cat.nombre}
+                  </Link>
+                )
+              ))}
             </div>
+
             <div className="menu-promo">
               <img src={process.env.PUBLIC_URL + "/img/promo.png"} alt="Promo" />
             </div>
           </div>
         </div>
       )}
+
     </>
   );
 }
