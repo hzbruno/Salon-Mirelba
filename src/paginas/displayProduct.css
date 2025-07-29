@@ -46,7 +46,7 @@
   margin-bottom: 32px;
 }
 
-.btn-add-cart {
+.btn {
   padding: 16px 32px;
   background-color: #1e40af;
   color: white;
@@ -60,7 +60,7 @@
   box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
 }
 
-.btn-add-cart:hover {
+.btn:hover {
   background-color: #374bb0;
   box-shadow: 0 6px 16px rgba(30, 64, 175, 0.6);
 }

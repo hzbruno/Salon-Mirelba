@@ -7,6 +7,11 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.producto-item h3,p{
+
 }
 
 .producto-item:hover {
@@ -24,10 +29,20 @@
   font-size: 1.1rem;
   margin: 10px 0 5px;
   color: #333;
+  text-decoration: none;
 }
 
 .producto-precio {
   font-size: 1rem;
   color: #E04009;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.item-link {
+  text-decoration: none;
+}
+
+.item-link * {
+  text-decoration: none;
 }

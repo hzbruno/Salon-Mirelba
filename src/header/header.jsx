@@ -29,19 +29,19 @@ function Header() {
         <div className="mega-menu">
           <div className="menu-inside">
             <div className="menu-categories">
-              <a href="#almacen" onClick={handleLinkClick}>Almacén</a>
-              <a href="#frescos" onClick={handleLinkClick}>Frescos</a>
-              <a href="#bebidas" onClick={handleLinkClick}>Bebidas</a>
-              <a href="#congelados" onClick={handleLinkClick}>Congelados</a>
-              <a href="#limpieza" onClick={handleLinkClick}>Limpieza</a>
-              <a href="#perfumeria" onClick={handleLinkClick}>Perfumería</a>
-              <a href="#tecnologia" onClick={handleLinkClick}>Electro y Tecnología</a>
-              <a href="#jugueteria" onClick={handleLinkClick}>Juguetería</a>
-              <a href="#deportes" onClick={handleLinkClick}>Deportes y Fitness</a>
-              <a href="#hogar" onClick={handleLinkClick}>Hogar y Tiempo Libre</a>
-              <a href="#ferreteria" onClick={handleLinkClick}>Ferretería</a>
-              <a href="#bebes" onClick={handleLinkClick}>Bebés</a>
-              <a href="#ofertas" className="oferta" onClick={handleLinkClick}>Ofertas</a>
+              <Link to="/categoria/almacen" onClick={handleLinkClick}>Almacén</Link>
+              <Link to="/categoria/frescos" onClick={handleLinkClick}>Frescos</Link>
+              <Link to="/categoria/bebidas" onClick={handleLinkClick}>Bebidas</Link>
+              <Link to="/categoria/congelados" onClick={handleLinkClick}>Congelados</Link>
+              <Link to="/categoria/limpieza" onClick={handleLinkClick}>Limpieza</Link>
+              <Link to="/categoria/perfumeria" onClick={handleLinkClick}>Perfumería</Link>
+              <Link to="/categoria/tecnologia" onClick={handleLinkClick}>Electro y Tecnología</Link>
+              <Link to="/categoria/jugueteria" onClick={handleLinkClick}>Juguetería</Link>
+              <Link to="/categoria/deportes" onClick={handleLinkClick}>Deportes y Fitness</Link>
+              <Link to="/categoria/hogar" onClick={handleLinkClick}>Hogar y Tiempo Libre</Link>
+              <Link to="/categoria/ferreteria" onClick={handleLinkClick}>Ferretería</Link>
+              <Link to="/categoria/bebes" onClick={handleLinkClick}>Bebés</Link>
+              <Link to="/categoria/ofertas" className="oferta" onClick={handleLinkClick}>Ofertas</Link>
             </div>
             <div className="menu-promo">
               <img src={process.env.PUBLIC_URL + "/img/promo.png"} alt="Promo" />

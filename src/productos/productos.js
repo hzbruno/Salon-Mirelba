@@ -36,7 +36,7 @@ const productos = [
     nombre: "Arroz Blanco 1kg",
     precio: 60.00,
     imagen: "/img/promo.png",
-    categoria: "almacen",
+    categoria: ["almacen", "ofertas"],
     descripcion: ["descripcion"]
   },
   {
@@ -44,7 +44,7 @@ const productos = [
     nombre: "Aceite Girasol 900ml",
     precio: 180.00,
     imagen: "/img/promo.png",
-    categoria: "almacen",
+    categoria: ["almacen", "ofertas"],
     descripcion: ["descripcion"]
   },
   {
@@ -52,7 +52,7 @@ const productos = [
     nombre: "Lechuga Criolla",
     precio: 30.00,
     imagen: "/img/promo.png",
-    categoria: "frescos",
+    categoria:[ "frescos","ofertas"],
     descripcion: ["descripcion"]
   },
   {
@@ -60,7 +60,7 @@ const productos = [
     nombre: "Tomate Redondo",
     precio: 50.00,
     imagen: "/img/promo.png",
-    categoria: "frescos",
+    categoria: ["frescos","ofertas"],
     descripcion: ["descripcion"]
   },
   {
@@ -68,7 +68,7 @@ const productos = [
     nombre: "Yogur Natural",
     precio: 40.00,
     imagen: "/img/promo.png",
-    categoria: "frescos",
+    categoria: ["frescos","ofertas"],
     descripcion: ["descripcion"]
   },
   {
@@ -76,7 +76,7 @@ const productos = [
     nombre: "Detergente Líquido",
     precio: 90.00,
     imagen: "/img/promo.png",
-    categoria: "limpieza",
+    categoria: ["limpieza","ofertas"],
     descripcion: ["descripcion"]
   },
   {
@@ -84,7 +84,7 @@ const productos = [
     nombre: "Shampoo Herbal",
     precio: 110.00,
     imagen: "/img/promo.png",
-    categoria: "perfumeria",
+    categoria: ["perfumeria","ofertas"],
     descripcion: ["descripcion"]
   },
   {
@@ -92,7 +92,7 @@ const productos = [
     nombre: "Toallas Húmedas Bebé",
     precio: 85.00,
     imagen: "/img/promo.png",
-    categoria: "bebes",
+    categoria: ["bebes","ofertas"],
     descripcion: ["descripcion"]
   }
 ];

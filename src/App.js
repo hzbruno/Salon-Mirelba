@@ -3,6 +3,7 @@ import Header from './header/header';
 import Carrusel from './bannerDisplay/banner';
 import ProductosFila from './itemDisplay/productosFila';
 import DisplayProduct from './paginas/displayProduct';
+import DisplayCategoria from './paginas/displayCategoria';
 import Footer from './footer/footer';
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
               <ProductosFila categoriasDeseadas={['bebidas', 'ofertas', 'frescos', 'almacen']} titulo="Bebidas, Ofertas, Frescos y Almacen" />
               <ProductosFila categoriasDeseadas={['bebes']} titulo="Bebes" />
             </>
-          }/>
+          } />
           <Route path="/producto/:id" element={<DisplayProduct />} />
+          <Route path="/categoria/:nombre" element={<DisplayCategoria />} />
         </Routes>
       </main>
       <Footer />
