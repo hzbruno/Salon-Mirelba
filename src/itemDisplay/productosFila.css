@@ -1,0 +1,80 @@
+.contenedor-fila {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ← cambia esto */
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0 16px; /* espacio a los lados */
+}
+
+.productos-fila {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 16px 0;
+  scroll-behavior: smooth;
+  width: 100%;
+  box-sizing: border-box;
+  scroll-snap-type: x mandatory;
+}
+
+.productos-fila > .producto-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.productos-fila::-webkit-scrollbar {
+  height: 8px;
+}
+
+.productos-fila::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.arrow {
+  background-color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1;
+  color: #333;
+  transition: background-color 0.2s ease;
+  user-select: none;
+  border-radius: 25%;
+}
+
+.arrow:hover {
+  background-color: #eee;
+}
+
+.arrow.izquierda {
+  margin-right: 8px;
+}
+
+.arrow.derecha {
+  margin-left: 8px;
+}
+
+
+.seccion-fila {
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.titulo-fila {
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: normal;
+  color: #333;
+  text-align: center;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}

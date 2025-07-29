@@ -1,0 +1,52 @@
+.banner-carrusel {
+  position: relative;
+  width: 100%;
+  max-height: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carrusel-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.banner-imagen {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: #00000081;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.flecha:hover {
+   background: #000000bb;
+}
+
+.flecha-izquierda {
+  left: 10px;
+}
+
+.flecha-derecha {
+  right: 10px;
+}
