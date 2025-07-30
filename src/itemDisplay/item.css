@@ -10,10 +10,6 @@
   text-decoration: none;
 }
 
-.producto-item h3,p{
-
-}
-
 .producto-item:hover {
   transform: translateY(-4px);
 }
@@ -46,3 +42,4 @@
 .item-link * {
   text-decoration: none;
 }
+

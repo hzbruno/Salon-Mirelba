@@ -7,6 +7,10 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(null);
 
+  const isTouchDevice = () => {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  };
+
   const handleLinkClick = () => {
     setMenuOpen(false);
     setSubMenuOpen(null);
@@ -14,6 +18,17 @@ function Header() {
 
   const toggleSubMenu = (categoria) => {
     setSubMenuOpen(subMenuOpen === categoria ? null : categoria);
+  };
+
+  const handleCategoryClick = (e, cat) => {
+    if (isTouchDevice()) {
+      if (subMenuOpen !== cat.nombre) {
+        e.preventDefault(); // Previene la navegación en el primer toque
+        setSubMenuOpen(cat.nombre); // Muestra el submenu
+      } else {
+        handleLinkClick(); // Ya estaba abierto, ahora sí navega
+      }
+    }
   };
 
   return (
@@ -30,7 +45,7 @@ function Header() {
         <div className="right-section">
           <a href="#about" className="about-link">Sobre Nosotros</a>
         </div>
-      </header>
+      
 
       {menuOpen && (
         <div className="mega-menu">
@@ -42,12 +57,12 @@ function Header() {
                   <div
                     key={index}
                     className={`menu-subgroup hoverable ${subMenuOpen === cat.nombre ? 'active' : ''}`}
-                    onMouseEnter={() => toggleSubMenu(cat.nombre)}
-                    onMouseLeave={() => toggleSubMenu(null)}
+                    onMouseEnter={() => !isTouchDevice() && toggleSubMenu(cat.nombre)}
+                    onMouseLeave={() => !isTouchDevice() && toggleSubMenu(null)}
                   >
                     <Link
                       to={`/categoria/${cat.ruta}`}
-                      onClick={handleLinkClick}
+                      onClick={(e) => handleCategoryClick(e, cat)}
                       className="categoria-link"
                     >
                       {cat.nombre} <span className="arrow-menu">›</span>
@@ -87,7 +102,7 @@ function Header() {
           </div>
         </div>
       )}
-
+      </header>
     </>
   );
 }
