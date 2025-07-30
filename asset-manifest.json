@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Salon-Mirelba/static/css/main.b2aaca1f.css",
-    "main.js": "/Salon-Mirelba/static/js/main.8ccef114.js",
+    "main.css": "/Salon-Mirelba/static/css/main.604c9d90.css",
+    "main.js": "/Salon-Mirelba/static/js/main.fee37492.js",
     "static/js/453.60577089.chunk.js": "/Salon-Mirelba/static/js/453.60577089.chunk.js",
     "index.html": "/Salon-Mirelba/index.html",
-    "main.b2aaca1f.css.map": "/Salon-Mirelba/static/css/main.b2aaca1f.css.map",
-    "main.8ccef114.js.map": "/Salon-Mirelba/static/js/main.8ccef114.js.map",
+    "main.604c9d90.css.map": "/Salon-Mirelba/static/css/main.604c9d90.css.map",
+    "main.fee37492.js.map": "/Salon-Mirelba/static/js/main.fee37492.js.map",
     "453.60577089.chunk.js.map": "/Salon-Mirelba/static/js/453.60577089.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2aaca1f.css",
-    "static/js/main.8ccef114.js"
+    "static/css/main.604c9d90.css",
+    "static/js/main.fee37492.js"
   ]
 }
