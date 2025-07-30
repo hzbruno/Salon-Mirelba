@@ -1,4 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Header from './components/header/header';
 import Carrusel from './components/carrusel/banner';
 import ProductosFila from './components/filaProductos/productosFila';
@@ -8,8 +10,24 @@ import Footer from './components/footer/footer';
 import WhatsAppButton from './components/whatsapp/whatsapp';
 import FilaCategorias from './components/filaCategorias/filaCategorias';
 
-
 function App() {
+  const [mostrarCategorias, setMostrarCategorias] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
+
+    const manejarCambio = (e) => {
+      setMostrarCategorias(!e.matches); // si coincide, es móvil vertical → ocultar
+    };
+
+    manejarCambio(mediaQuery); // ejecutar al cargar
+    mediaQuery.addEventListener('change', manejarCambio);
+
+    return () => {
+      mediaQuery.removeEventListener('change', manejarCambio);
+    };
+  }, []);
+
   return (
     <BrowserRouter basename="/Salon-Mirelba">
       <Header />
@@ -18,16 +36,15 @@ function App() {
           <Route path="/" element={
             <>
               <Carrusel />
-              <FilaCategorias/>
+              {mostrarCategorias && <FilaCategorias />}
               <ProductosFila categoriasDeseadas={['ofertas']} titulo="Ofertas" />
-              <ProductosFila categoriasDeseadas={['electrodomesticos']} titulo="Electrodomesticos" />
+              <ProductosFila categoriasDeseadas={['electrodomesticos']} titulo="Electrodomésticos" />
             </>
           } />
           <Route path="/producto/:id" element={<DisplayProduct />} />
           <Route path="/categoria/:nombre" element={<DisplayCategoria />} />
         </Routes>
         <WhatsAppButton />
-        
       </main>
       <Footer />
     </BrowserRouter>
