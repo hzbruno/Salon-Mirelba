@@ -10,15 +10,17 @@
   text-decoration: none;
 }
 
-.producto-item:hover {
-  transform: translateY(-4px);
-}
+
 
 .producto-img {
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 6px;
+}
+
+.producto-img:hover{
+  transform:scale(1.02);
 }
 
 .producto-nombre {

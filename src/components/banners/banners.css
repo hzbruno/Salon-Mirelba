@@ -1,0 +1,46 @@
+.banners-Group {
+  display: flex;
+  gap: 20px; /* espacio entre banners */
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+  background-color: #fafafa; /* fondo suave */
+  flex-wrap: wrap; /* para que baje en pantallas pequeñas */
+}
+
+.banner {
+  flex: 1 1 300px; /* que crezca y encaje con mínimo 300px */
+  max-width: 40%; /* límite máximo */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.banner:hover {
+  transform: scale(1.01);
+  cursor:auto;
+}
+
+.banner-ind {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .banners-Group {
+    display: flex;
+    flex-direction: column;
+  }
+  .banner {
+    max-width: 80%;
+    max-height: fit-content;
+  }
+  
+}
+
+

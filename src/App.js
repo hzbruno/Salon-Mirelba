@@ -9,6 +9,10 @@ import DisplayCategoria from './paginas/displayCategoria';
 import Footer from './components/footer/footer';
 import WhatsAppButton from './components/whatsapp/whatsapp';
 import FilaCategorias from './components/filaCategorias/filaCategorias';
+import BannersDisplay from './components/banners/banners';
+import BannerGrande from './components/banners/banner-individual';
+
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   const [mostrarCategorias, setMostrarCategorias] = useState(true);
@@ -30,6 +34,7 @@ function App() {
 
   return (
     <BrowserRouter basename="/Salon-Mirelba">
+      <ScrollToTop />
       <Header />
       <main>
         <Routes>
@@ -38,7 +43,10 @@ function App() {
               <Carrusel />
               {mostrarCategorias && <FilaCategorias />}
               <ProductosFila categoriasDeseadas={['ofertas']} titulo="Ofertas" />
+              <BannersDisplay/>
               <ProductosFila categoriasDeseadas={['electrodomesticos']} titulo="Electrodomésticos" />
+              <BannerGrande/>
+              <ProductosFila categoriasDeseadas={['celulares']} titulo="Celulares" />
             </>
           } />
           <Route path="/producto/:id" element={<DisplayProduct />} />

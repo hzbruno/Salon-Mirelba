@@ -7,6 +7,7 @@ const productos = [
     imagen: `/img/promo.png`,
     precio: 399 + i * 20,
     categoria: 'jugueteria',
+    descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
   })),
 
   // Vestimenta subcategorías
@@ -17,6 +18,7 @@ const productos = [
       imagen: `/img/promo.png`,
       precio: 899 + i * 50,
       categoria: ruta,
+      descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
     }))
   ),
 
@@ -28,6 +30,7 @@ const productos = [
       imagen: `/img/promo.png`,
       precio: 1199 + i * 80,
       categoria: ruta,
+      descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
     }))
   ),
 
@@ -39,6 +42,7 @@ const productos = [
       imagen: `/img/promo.png`,
       precio: 5499 + i * 1000,
       categoria: ruta,
+      descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
     }))
   ),
 
@@ -49,6 +53,7 @@ const productos = [
     imagen: `/img/promo.png`,
     precio: 19999 + i * 1000,
     categoria: 'celulares',
+    descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
   })),
 
   // Smartwatches
@@ -58,6 +63,7 @@ const productos = [
     imagen: `/img/promo.png`,
     precio: 5999 + i * 500,
     categoria: 'smartwatches',
+    descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
   })),
 
   // Juegos de Mesa
@@ -67,6 +73,7 @@ const productos = [
     imagen: `/img/promo.png`,
     precio: 1799 + i * 200,
     categoria: 'juegosdemesa',
+    descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
   })),
 
   // Peluches
@@ -76,6 +83,7 @@ const productos = [
     imagen: `/img/promo.png`,
     precio: 899 + i * 80,
     categoria: 'peluches',
+    descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
   })),
 
   // Hogar subcategorías
@@ -86,6 +94,7 @@ const productos = [
       imagen: `/img/promo.png`,
       precio: 1399 + i * 300,
       categoria: ruta,
+      descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
     }))
   ),
 
@@ -96,6 +105,7 @@ const productos = [
     imagen: `/img/promo.png`,
     precio: 999 + i * 150,
     categoria: 'ofertas',
+    descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
   })),
 ];
 
