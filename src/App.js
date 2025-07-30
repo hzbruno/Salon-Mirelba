@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './header/header';
-import Carrusel from './bannerDisplay/banner';
-import ProductosFila from './itemDisplay/productosFila';
+import Header from './components/header/header';
+import Carrusel from './components/carrusel/banner';
+import ProductosFila from './components/filaProductos/productosFila';
 import DisplayProduct from './paginas/displayProduct';
 import DisplayCategoria from './paginas/displayCategoria';
-import Footer from './footer/footer';
+import Footer from './components/footer/footer';
+import WhatsAppButton from './components/whatsapp/whatsapp';
+
 
 function App() {
   return (
@@ -15,13 +17,15 @@ function App() {
           <Route path="/" element={
             <>
               <Carrusel />
-              <ProductosFila categoriasDeseadas={['bebidas', 'ofertas', 'frescos', 'almacen']} titulo="Bebidas, Ofertas, Frescos y Almacen" />
-              <ProductosFila categoriasDeseadas={['bebes']} titulo="Bebes" />
+              <ProductosFila categoriasDeseadas={['ofertas']} titulo="Ofertas" />
+              <ProductosFila categoriasDeseadas={['electrodomesticos']} titulo="Electrodomesticos" />
             </>
           } />
           <Route path="/producto/:id" element={<DisplayProduct />} />
           <Route path="/categoria/:nombre" element={<DisplayCategoria />} />
         </Routes>
+        <WhatsAppButton />
+        
       </main>
       <Footer />
     </BrowserRouter>

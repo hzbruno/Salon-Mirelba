@@ -1,36 +1,106 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import productos from '../productos/productos';
-import ItemProducto from '../itemDisplay/item';
+import productos from '../datos/productos';
+import categorias from '../datos/categorias';
+import ProductosFila from '../components/filaProductos/productosFila';
+import ItemProducto from '../components/itemDisplay/item';
 import './displayCategoria.css';
 
 export default function DisplayCategoria() {
   const { nombre } = useParams();
 
-  const productosFiltrados = productos.filter(p =>
-    Array.isArray(p.categoria)
-      ? p.categoria.includes(nombre)
-      : p.categoria === nombre
-  );
+  // Buscar categoría principal (por ruta)
+  const categoriaPrincipal = categorias.find(cat => cat.ruta === nombre);
 
-  if (productosFiltrados.length === 0) {
-    return <p className="no-productos">No hay productos en esta categoría.</p>;
+  // Buscar subcategoría si no se encontró en principal
+  let subcategoriaEncontrada = null;
+  let categoriaPadre = null;
+
+  if (!categoriaPrincipal) {
+    for (let cat of categorias) {
+      if (cat.subcategorias) {
+        const sub = cat.subcategorias.find(s => s.ruta === nombre);
+        if (sub) {
+          subcategoriaEncontrada = sub;
+          categoriaPadre = cat;
+          break;
+        }
+      }
+    }
   }
 
-  return (
-    <div className="categoria-container">
-      <h1 className="categoria-titulo">{nombre}</h1>
-      <div className="productos-grid">
-        {productosFiltrados.map(p => (
-          <ItemProducto
-            key={p.id}
-            id={p.id}
-            imagen={process.env.PUBLIC_URL + p.imagen}
-            nombre={p.nombre}
-            precio={p.precio}
+  // Si es una subcategoría
+  if (subcategoriaEncontrada) {
+    const productosFiltrados = productos.filter(p => p.categoria === subcategoriaEncontrada.ruta);
+
+    return (
+      <div className="categoria-container">
+        <h1 className="categoria-titulo">
+          {categoriaPadre.nombre} / {subcategoriaEncontrada.nombre}
+        </h1>
+        <div className="productos-grid">
+          {productosFiltrados.length > 0 ? (
+            productosFiltrados.map(p => (
+              <div key={p.id} className="producto-item-wrapper">
+                <ItemProducto
+                  id={p.id}
+                  imagen={process.env.PUBLIC_URL + p.imagen}
+                  nombre={p.nombre}
+                  precio={p.precio}
+                />
+              </div>
+            ))
+          ) : (
+            <p className="no-productos">No hay productos en esta subcategoría.</p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Si es una categoría con subcategorías
+  if (categoriaPrincipal?.subcategorias && categoriaPrincipal.subcategorias.length > 0) {
+    return (
+      <div className="categoria-container">
+        <h1 className="categoria-titulo">{categoriaPrincipal.nombre}</h1>
+        {categoriaPrincipal.subcategorias.map((sub, idx) => (
+          <ProductosFila
+            key={idx}
+            categoriasDeseadas={[sub.ruta]}
+            titulo={sub.nombre}
           />
         ))}
       </div>
-    </div>
-  );
+    );
+  }
+
+  // Si es una categoría sin subcategorías
+  if (categoriaPrincipal) {
+    const productosFiltrados = productos.filter(p => p.categoria === categoriaPrincipal.ruta);
+
+    return (
+      <div className="categoria-container">
+        <h1 className="categoria-titulo">{categoriaPrincipal.nombre}</h1>
+        <div className="productos-grid">
+          {productosFiltrados.length > 0 ? (
+            productosFiltrados.map(p => (
+              <div key={p.id} className="producto-item-wrapper">
+                <ItemProducto
+                  id={p.id}
+                  imagen={process.env.PUBLIC_URL + p.imagen}
+                  nombre={p.nombre}
+                  precio={p.precio}
+                />
+              </div>
+            ))
+          ) : (
+            <p className="no-productos">No hay productos en esta categoría.</p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Si no coincide nada
+  return <p className="no-productos">Categoría no encontrada.</p>;
 }

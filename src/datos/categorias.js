@@ -6,6 +6,7 @@ const categorias = [
   },
   {
     nombre: 'Vestimenta',
+    ruta: 'vestimenta',
     subcategorias: [
       { nombre: 'Hombre', ruta: 'vestimenta-hombre' },
       { nombre: 'Mujer', ruta: 'vestimenta-mujer' },
@@ -16,6 +17,7 @@ const categorias = [
   },
   {
     nombre: 'Calzado',
+    ruta: 'calzado',
     subcategorias: [
       { nombre: 'Hombre', ruta: 'calzado-hombre' },
       { nombre: 'Mujer', ruta: 'calzado-mujer' },
@@ -25,6 +27,7 @@ const categorias = [
   },
   {
     nombre: 'Electrodomésticos',
+    ruta: 'electrodomesticos',
     subcategorias: [
       { nombre: 'Cocina', ruta: 'cocina' },
       { nombre: 'Refrigeración', ruta: 'refrigeracion' },
@@ -49,6 +52,7 @@ const categorias = [
   },
   {
     nombre: 'Hogar',
+    ruta: 'hogar',
     subcategorias: [
       { nombre: 'Decoración', ruta: 'decoracion' },
       { nombre: 'Organización', ruta: 'organizacion' },

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import productos from '../productos/productos';
+import productos from '../datos/productos';
 import './displayProduct.css';
-import ProductosFila from '../itemDisplay/productosFila';
+import ProductosFila from '../components/filaProductos/productosFila';
 
 export default function DisplayProduct() {
   const { id } = useParams();
-  const producto = productos.find(p => p.id === parseInt(id));
+  const producto = productos.find(p => p.id === id);
+
+
 
   if (!producto) return <p style={{ textAlign: 'center', marginTop: 50 }}>Producto no encontrado</p>;
 

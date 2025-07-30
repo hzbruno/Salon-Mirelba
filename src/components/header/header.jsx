@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import categorias from '../datos/categorias';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import categorias from '../../datos/categorias';
 import './header.css';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Cierra el menú cada vez que la ruta cambia
+    setMenuOpen(false);
+    setSubMenuOpen(null);
+  }, [location]);
 
   const isTouchDevice = () => {
     return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  };
-
-  const handleLinkClick = () => {
-    setMenuOpen(false);
-    setSubMenuOpen(null);
   };
 
   const toggleSubMenu = (categoria) => {
@@ -25,32 +27,28 @@ function Header() {
       if (subMenuOpen !== cat.nombre) {
         e.preventDefault(); // Previene la navegación en el primer toque
         setSubMenuOpen(cat.nombre); // Muestra el submenu
-      } else {
-        handleLinkClick(); // Ya estaba abierto, ahora sí navega
       }
+      // Si ya estaba abierto, dejamos que navegue naturalmente
     }
   };
 
   return (
-    <>
-      <header className="header">
-        <div className="left-section">
-          <Link to="/" onClick={handleLinkClick}>
-            <img id="logo" src={process.env.PUBLIC_URL + "/img/salon-mirelba-logo.png"} alt="Logo" />
-          </Link>
-          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
-            ☰ MENÚ
-          </button>
-        </div>
-        <div className="right-section">
-          <a href="#about" className="about-link">Sobre Nosotros</a>
-        </div>
-      
+    <header className="header">
+      <div className="left-section">
+        <Link to="/" onClick={() => { setMenuOpen(false); setSubMenuOpen(null); }}>
+          <img id="logo" src={process.env.PUBLIC_URL + "/img/salon-mirelba-logo.png"} alt="Logo" />
+        </Link>
+        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰ MENÚ
+        </button>
+      </div>
+      <div className="right-section">
+        
+      </div>
 
       {menuOpen && (
         <div className="mega-menu">
           <div className="menu-inside">
-
             <div className="menu-categories">
               {categorias.map((cat, index) => (
                 cat.subcategorias ? (
@@ -74,7 +72,10 @@ function Header() {
                           <Link
                             key={i}
                             to={`/categoria/${sub.ruta}`}
-                            onClick={handleLinkClick}
+                            onClick={() => {
+                              setMenuOpen(false);
+                              setSubMenuOpen(null);
+                            }}
                             className="submenu-link"
                           >
                             {sub.nombre}
@@ -87,7 +88,10 @@ function Header() {
                   <Link
                     key={index}
                     to={`/categoria/${cat.ruta}`}
-                    onClick={handleLinkClick}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setSubMenuOpen(null);
+                    }}
                     className={cat.especial ? 'oferta' : ''}
                   >
                     {cat.nombre}
@@ -102,8 +106,7 @@ function Header() {
           </div>
         </div>
       )}
-      </header>
-    </>
+    </header>
   );
 }
 
