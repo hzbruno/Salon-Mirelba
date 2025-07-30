@@ -67,6 +67,13 @@
   color: #9ca3af;
 }
 
+.map-container {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .footer-container {

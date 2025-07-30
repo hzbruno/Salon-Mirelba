@@ -6,6 +6,7 @@ import DisplayProduct from './paginas/displayProduct';
 import DisplayCategoria from './paginas/displayCategoria';
 import Footer from './components/footer/footer';
 import WhatsAppButton from './components/whatsapp/whatsapp';
+import FilaCategorias from './components/filaCategorias/filaCategorias';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={
             <>
               <Carrusel />
+              <FilaCategorias/>
               <ProductosFila categoriasDeseadas={['ofertas']} titulo="Ofertas" />
               <ProductosFila categoriasDeseadas={['electrodomesticos']} titulo="Electrodomesticos" />
             </>
