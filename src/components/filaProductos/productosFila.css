@@ -77,3 +77,14 @@
   margin-bottom: 5px;
   letter-spacing: 0.5px;
 }
+
+.link-titulo {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-titulo:hover {
+  font-weight: 500;
+}
+

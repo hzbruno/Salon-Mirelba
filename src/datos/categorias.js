@@ -29,9 +29,9 @@ const categorias = [
     nombre: 'Electrodomésticos',
     ruta: 'electrodomesticos',
     subcategorias: [
-      { nombre: 'Cocina', ruta: 'cocina' },
-      { nombre: 'Refrigeración', ruta: 'refrigeracion' },
-      { nombre: 'Lavado', ruta: 'lavado' },
+      { nombre: 'Cocina', ruta: 'electrodomesticos-cocina' },
+      { nombre: 'Refrigeración', ruta: 'electrodomesticos-refrigeracion' },
+      { nombre: 'Lavado', ruta: 'electrodomesticos-lavado' },
     ]
   },
   {
@@ -54,9 +54,9 @@ const categorias = [
     nombre: 'Hogar',
     ruta: 'hogar',
     subcategorias: [
-      { nombre: 'Decoración', ruta: 'decoracion' },
-      { nombre: 'Organización', ruta: 'organizacion' },
-      { nombre: 'Textiles', ruta: 'textiles' },
+      { nombre: 'Decoración', ruta: 'hogar-decoracion' },
+      { nombre: 'Organización', ruta: 'hogar-organizacion' },
+      { nombre: 'Textiles', ruta: 'hogar-textiles' },
     ]
   },
   {

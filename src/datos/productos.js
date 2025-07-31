@@ -35,10 +35,10 @@ const productos = [
   ),
 
   // Electrodomésticos subcategorías
-  ...['cocina', 'refrigeracion', 'lavado'].flatMap(ruta =>
+  ...['electrodomesticos-cocina', 'electrodomesticos-refrigeracion', 'electrodomesticos-lavado'].flatMap(ruta =>
     Array.from({ length: 3 }, (_, i) => ({
-      id: `electro-${ruta}-${i}`,
-      nombre: `Electro ${ruta.charAt(0).toUpperCase() + ruta.slice(1)} ${i + 1}`,
+      id: `${ruta}-${i}`,
+      nombre: `Electrodomésticos ${ruta.split('-')[1].charAt(0).toUpperCase() + ruta.split('-')[1].slice(1)} ${i + 1}`,
       imagen: `/img/promo.png`,
       precio: 5499 + i * 1000,
       categoria: ruta,
@@ -87,9 +87,9 @@ const productos = [
   })),
 
   // Hogar subcategorías
-  ...['decoracion', 'organizacion', 'textiles'].flatMap(ruta =>
+  ...['hogar-decoracion', 'hogar-organizacion', 'hogar-textiles'].flatMap(ruta =>
     Array.from({ length: 3 }, (_, i) => ({
-      id: `hogar-${ruta}-${i}`,
+      id: `${ruta}-${i}`,
       nombre: `Artículo ${ruta.charAt(0).toUpperCase() + ruta.slice(1)} ${i + 1}`,
       imagen: `/img/promo.png`,
       precio: 1399 + i * 300,

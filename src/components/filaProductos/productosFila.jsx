@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import productos from '../../datos/productos';
 import categorias from '../../datos/categorias'; // importa el listado de categorías
 import ItemProducto from "../itemDisplay/item";
@@ -57,9 +58,26 @@ export default function ProductosFila({ categoriasDeseadas, titulo }) {
     );
   });
 
+  // Para el link del título tomamos la primer categoría base que coincide en categoriasDeseadas:
+  // Si la primer categoria deseada es subcategoria, obtengo la principal para el link
+  let rutaCategoriaTitulo = categoriasInputArray[0];
+  const categoriaObj = categorias.find(c => c.ruta === rutaCategoriaTitulo || c.nombre.toLowerCase() === rutaCategoriaTitulo.toLowerCase());
+  if (categoriaObj && categoriaObj.subcategorias && categoriaObj.subcategorias.length > 0) {
+    // Si la primer categoria es principal con subcategorias, linkeo a ella misma
+    rutaCategoriaTitulo = categoriaObj.ruta;
+  } else {
+    // Si es subcategoria, busco quien es el padre para linkear
+    const padre = categorias.find(c => c.subcategorias?.some(sc => sc.ruta === rutaCategoriaTitulo));
+    if (padre) rutaCategoriaTitulo = padre.ruta + '-' + rutaCategoriaTitulo.split('-')[1];
+  }
+
   return (
     <div className="seccion-fila">
-      <h2 className="titulo-fila">{titulo}</h2>
+      <h2 className="titulo-fila">
+        <Link to={`/categoria/${rutaCategoriaTitulo}`} className="link-titulo">
+          {titulo}
+        </Link>
+      </h2>
 
       <div className="contenedor-fila">
         <button className="arrow izquierda" onClick={scrollIzquierda}>‹</button>
