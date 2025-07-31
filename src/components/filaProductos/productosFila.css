@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* ← cambia esto */
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   overflow-x: hidden;
   box-sizing: border-box;

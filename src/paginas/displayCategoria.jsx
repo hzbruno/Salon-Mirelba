@@ -30,9 +30,20 @@ export default function DisplayCategoria() {
     }
   }
 
+  // Utilidad para filtrar productos por categoría o subcategoría
+  const productoPerteneceACategoria = (producto, rutaCategoria) => {
+    if (!producto.categoria) return false;
+    if (Array.isArray(producto.categoria)) {
+      return producto.categoria.includes(rutaCategoria);
+    }
+    return producto.categoria === rutaCategoria;
+  };
+
   // Si es una subcategoría
   if (subcategoriaEncontrada) {
-    const productosFiltrados = productos.filter(p => p.categoria === subcategoriaEncontrada.ruta);
+    const productosFiltrados = productos.filter(p =>
+      productoPerteneceACategoria(p, subcategoriaEncontrada.ruta)
+    );
 
     return (
       <>
@@ -63,7 +74,7 @@ export default function DisplayCategoria() {
   }
 
   // Si es una categoría con subcategorías
-  if (categoriaPrincipal?.subcategorias && categoriaPrincipal.subcategorias.length > 0) {
+  if (categoriaPrincipal?.subcategorias?.length > 0) {
     return (
       <>
         <Breadcrumbs />
@@ -83,7 +94,9 @@ export default function DisplayCategoria() {
 
   // Si es una categoría sin subcategorías
   if (categoriaPrincipal) {
-    const productosFiltrados = productos.filter(p => p.categoria === categoriaPrincipal.ruta);
+    const productosFiltrados = productos.filter(p =>
+      productoPerteneceACategoria(p, categoriaPrincipal.ruta)
+    );
 
     return (
       <>

@@ -39,7 +39,7 @@ function Header() {
           <img id="logo" src={process.env.PUBLIC_URL + "/img/salon-mirelba-logo.png"} alt="Logo" />
         </Link>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰ MENÚ
+          ☰ CATÁLOGO
         </button>
       </div>
       <div className="right-section">

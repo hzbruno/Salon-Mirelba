@@ -46,7 +46,7 @@ function App() {
               <BannersDisplay/>
               <ProductosFila categoriasDeseadas={['electrodomesticos']} titulo="Electrodomésticos" />
               <BannerGrande/>
-              <ProductosFila categoriasDeseadas={['celulares']} titulo="Celulares" />
+              <ProductosFila categoriasDeseadas={['celulares','peluches']} titulo="Celulares y Peluches" />
             </>
           } />
           <Route path="/producto/:id" element={<DisplayProduct />} />

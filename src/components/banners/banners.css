@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px 10px;
-  background-color: #fafafa; /* fondo suave */
+  background-color: white; /* fondo suave */
   flex-wrap: wrap; /* para que baje en pantallas pequeñas */
 }
 

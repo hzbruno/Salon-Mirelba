@@ -41,7 +41,7 @@ const productos = [
       nombre: `Electrodomésticos ${ruta.split('-')[1].charAt(0).toUpperCase() + ruta.split('-')[1].slice(1)} ${i + 1}`,
       imagen: `/img/promo.png`,
       precio: 5499 + i * 1000,
-      categoria: ruta,
+      categoria: [ruta,'ofertas'],
       descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
     }))
   ),
@@ -104,7 +104,7 @@ const productos = [
     nombre: `Producto en Oferta ${i + 1}`,
     imagen: `/img/promo.png`,
     precio: 999 + i * 150,
-    categoria: 'ofertas',
+    categoria: ['ofertas','peluches'],
     descripcion: 'Si has llegado hasta aquí es porque las descripciones de producto son un aspecto clave de cualquier tienda en línea. A continuación te mostraremos como hacer una gran descripción de producto con ejemplos.',
   })),
 ];

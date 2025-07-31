@@ -16,7 +16,12 @@ export default function Breadcrumb() {
     const producto = productos.find(p => p.id === parseInt(id));
     if (!producto) return null;
 
-    const partes = producto.categoria.split('-');
+    // Asegura que `categoria` sea string para usar split
+    const categoriaPrincipal = Array.isArray(producto.categoria)
+      ? producto.categoria[0]
+      : producto.categoria;
+
+    const partes = categoriaPrincipal.split('-');
     const grupo = partes[0];
     const subgrupo = partes[1];
 
