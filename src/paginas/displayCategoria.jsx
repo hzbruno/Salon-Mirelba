@@ -4,6 +4,7 @@ import productos from '../datos/productos';
 import categorias from '../datos/categorias';
 import ProductosFila from '../components/filaProductos/productosFila';
 import ItemProducto from '../components/itemDisplay/item';
+import Breadcrumbs from '../components/Breadcrumbs/BreadcrumbsCategory';
 import './displayCategoria.css';
 
 export default function DisplayCategoria() {
@@ -34,43 +35,49 @@ export default function DisplayCategoria() {
     const productosFiltrados = productos.filter(p => p.categoria === subcategoriaEncontrada.ruta);
 
     return (
-      <div className="categoria-container">
-        <h1 className="categoria-titulo">
-          {categoriaPadre.nombre} / {subcategoriaEncontrada.nombre}
-        </h1>
-        <div className="productos-grid">
-          {productosFiltrados.length > 0 ? (
-            productosFiltrados.map(p => (
-              <div key={p.id} className="producto-item-wrapper">
-                <ItemProducto
-                  id={p.id}
-                  imagen={process.env.PUBLIC_URL + p.imagen}
-                  nombre={p.nombre}
-                  precio={p.precio}
-                />
-              </div>
-            ))
-          ) : (
-            <p className="no-productos">No hay productos en esta subcategoría.</p>
-          )}
+      <>
+        <Breadcrumbs />
+        <div className="categoria-container">
+          <h1 className="categoria-titulo">
+            {categoriaPadre.nombre} / {subcategoriaEncontrada.nombre}
+          </h1>
+          <div className="productos-grid">
+            {productosFiltrados.length > 0 ? (
+              productosFiltrados.map(p => (
+                <div key={p.id} className="producto-item-wrapper">
+                  <ItemProducto
+                    id={p.id}
+                    imagen={process.env.PUBLIC_URL + p.imagen}
+                    nombre={p.nombre}
+                    precio={p.precio}
+                  />
+                </div>
+              ))
+            ) : (
+              <p className="no-productos">No hay productos en esta subcategoría.</p>
+            )}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   // Si es una categoría con subcategorías
   if (categoriaPrincipal?.subcategorias && categoriaPrincipal.subcategorias.length > 0) {
     return (
-      <div className="categoria-container">
-        <h1 className="categoria-titulo">{categoriaPrincipal.nombre}</h1>
-        {categoriaPrincipal.subcategorias.map((sub, idx) => (
-          <ProductosFila
-            key={idx}
-            categoriasDeseadas={[sub.ruta]}
-            titulo={sub.nombre}
-          />
-        ))}
-      </div>
+      <>
+        <Breadcrumbs />
+        <div className="categoria-container">
+          <h1 className="categoria-titulo">{categoriaPrincipal.nombre}</h1>
+          {categoriaPrincipal.subcategorias.map((sub, idx) => (
+            <ProductosFila
+              key={idx}
+              categoriasDeseadas={[sub.ruta]}
+              titulo={sub.nombre}
+            />
+          ))}
+        </div>
+      </>
     );
   }
 
@@ -79,25 +86,28 @@ export default function DisplayCategoria() {
     const productosFiltrados = productos.filter(p => p.categoria === categoriaPrincipal.ruta);
 
     return (
-      <div className="categoria-container">
-        <h1 className="categoria-titulo">{categoriaPrincipal.nombre}</h1>
-        <div className="productos-grid">
-          {productosFiltrados.length > 0 ? (
-            productosFiltrados.map(p => (
-              <div key={p.id} className="producto-item-wrapper">
-                <ItemProducto
-                  id={p.id}
-                  imagen={process.env.PUBLIC_URL + p.imagen}
-                  nombre={p.nombre}
-                  precio={p.precio}
-                />
-              </div>
-            ))
-          ) : (
-            <p className="no-productos">No hay productos en esta categoría.</p>
-          )}
+      <>
+        <Breadcrumbs />
+        <div className="categoria-container">
+          <h1 className="categoria-titulo">{categoriaPrincipal.nombre}</h1>
+          <div className="productos-grid">
+            {productosFiltrados.length > 0 ? (
+              productosFiltrados.map(p => (
+                <div key={p.id} className="producto-item-wrapper">
+                  <ItemProducto
+                    id={p.id}
+                    imagen={process.env.PUBLIC_URL + p.imagen}
+                    nombre={p.nombre}
+                    precio={p.precio}
+                  />
+                </div>
+              ))
+            ) : (
+              <p className="no-productos">No hay productos en esta categoría.</p>
+            )}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 

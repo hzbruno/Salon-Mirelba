@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import productos from '../datos/productos';
 import './displayProduct.css';
 import ProductosFila from '../components/filaProductos/productosFila';
+import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs';
 
 export default function DisplayProduct() {
   const { id } = useParams();
@@ -14,6 +15,7 @@ export default function DisplayProduct() {
 
   return (
     <>
+          <Breadcrumbs />
     <div className="display-product-container">
       <img src={process.env.PUBLIC_URL + producto.imagen} alt={producto.nombre} className="product-image" />
       <div className="product-details">

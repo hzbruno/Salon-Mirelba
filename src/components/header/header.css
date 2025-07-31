@@ -214,6 +214,8 @@
     top: 100%; /* Justo debajo del header */
     left: 0;
     width: 100%;
+    height: fit-content;
+    padding-bottom: 10px;
     background: white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     z-index: 100;
