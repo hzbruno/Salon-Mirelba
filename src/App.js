@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Carrusel from './components/carrusel/banner';
 import ProductosFila from './components/filaProductos/productosFila';
+import ProductosFilaSinLink from './components/filaProductos/productosFilaNoLink';
 import DisplayProduct from './paginas/displayProduct';
 import DisplayCategoria from './paginas/displayCategoria';
 import Footer from './components/footer/footer';
@@ -46,7 +47,7 @@ function App() {
               <BannersDisplay/>
               <ProductosFila categoriasDeseadas={['electrodomesticos']} titulo="Electrodomésticos" />
               <BannerGrande/>
-              <ProductosFila categoriasDeseadas={['celulares','peluches']} titulo="Celulares y Peluches" />
+              <ProductosFilaSinLink categoriasDeseadas={['celulares','peluches']} titulo="Celulares y Peluches" />
             </>
           } />
           <Route path="/producto/:id" element={<DisplayProduct />} />
